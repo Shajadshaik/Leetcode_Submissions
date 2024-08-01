@@ -1,0 +1,22 @@
+TC - O(n)
+SC - O(1)
+
+Intuition:
+ -> Intuition is very simple,we need to find the count of Cititzens with Age > 60
+ -> We Iterate through the Array to find those who have Age > 60 by performing simple Math
+ -> We return the count.
+
+<! ---------------------------- || Solution || ------------------------------- !> 
+
+class Solution {
+    public int countSeniors(String[] details) {
+        int count = 0;
+        for(String s : details)
+        {
+            int age = (s.charAt(11) - '0') * 10 + (s.charAt(12) - '0');
+            if(age>60)
+            count++;
+        }
+    return count;
+    }
+}
