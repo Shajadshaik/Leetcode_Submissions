@@ -1,0 +1,43 @@
+class Solution {
+    public int minimumPushes(String word) {
+        
+        int [] arr = new int[26];
+        for(int i = 0;i < word.length();i++)
+        {
+            arr[word.charAt(i) - 'a']++;
+        }
+
+        int count = 0,sum = 0;
+
+        Arrays.sort(arr);
+        reverse(arr);
+
+        for(int i = 0;i < arr.length;i++)
+        {
+            if(arr[i] > 0)
+            {
+                sum += arr[i] * (count/8 + 1);
+                count++;
+            }
+        }
+
+        return sum;
+    }
+
+
+    private int[] reverse(int [] nums)
+    {
+        int temp = 0;
+        int i = 0,j = nums.length-1;
+        while(i < j)
+        {
+            temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            i++;
+            j--;
+        }
+
+        return nums;
+    }
+}
